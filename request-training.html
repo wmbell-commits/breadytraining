@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Request Training | B-Ready Training</title>
 <meta name="description" content="Request PIT, AWP, overhead crane, operator, or train-the-trainer training from B-Ready Training.">
 <style>
@@ -86,7 +88,7 @@ footer{background:#080808;color:#8d8d8d;padding:28px 0;border-top:1px solid #222
   <div>
    <div class="kicker">REQUEST TRAINING</div>
    <h1>Tell us what your team needs.</h1>
-   <p class="lead">Give B-Ready the basic details about your people, equipment, location, and timing. We’ll use it to prepare the right training approach and follow up with you directly.</p>
+   <p class="lead">Tell us what equipment you use, how many people need training, where the training will take place, and your preferred timing. We’ll use those details to prepare the scope and quote.</p>
    <div class="steps">
     <div class="step"><strong>1. Tell us what you use</strong><span>PIT, AWP, overhead crane, operator training, or train-the-trainer.</span></div>
     <div class="step"><strong>2. We review the need</strong><span>Equipment, class size, site conditions, scheduling, and training goals.</span></div>
@@ -102,7 +104,7 @@ footer{background:#080808;color:#8d8d8d;padding:28px 0;border-top:1px solid #222
   <aside class="side">
    <div class="kicker" style="color:#946f00">B-READY TRAINING</div>
    <h2>On-site industrial equipment training.</h2>
-   <p>Use this form for operator training, train-the-trainer, or a combination of equipment classes. The more detail you provide, the easier it is to build the right quote.</p>
+   <p>Use this form for operator training, train-the-trainer, or multiple equipment types. Equipment details and site conditions help us quote the work accurately.</p>
    <div class="contact-box">
     <span>Phone</span><a href="tel:+15866463950">586.646.3950</a>
     <span>Email</span><a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a>
@@ -112,7 +114,7 @@ footer{background:#080808;color:#8d8d8d;padding:28px 0;border-top:1px solid #222
 
   <section class="form-card">
    <h2>Training Request Form</h2>
-   <p class="intro">Required fields are marked with *. Completing the form opens an email addressed to B-Ready with your information already organized.</p>
+   <p class="intro">Required fields are marked with *. This website does not store your form responses. Submitting opens your email app with the request addressed to B-Ready.</p>
 
    <form id="trainingForm">
     <div class="grid">
@@ -159,40 +161,8 @@ footer{background:#080808;color:#8d8d8d;padding:28px 0;border-top:1px solid #222
  </div>
 </main>
 
-<footer><div class="wrap">© 2026 B-Ready Training • BReadyTraining.com</div></footer>
+<footer><div class="wrap">© 2026 B-Ready Training • BReadyTraining.com<br><span style="font-size:.8rem">Customer information is not stored on this site. Payment information is never requested here.</span></div></footer>
 
-<script>
-document.getElementById('trainingForm').addEventListener('submit', function(e){
- e.preventDefault();
- const f = new FormData(this);
- const courses = [...document.querySelectorAll('input[name="course"]:checked')].map(x => x.value);
- if (!courses.length) {
-   alert('Please select at least one training type.');
-   return;
- }
- const subject = 'B-Ready Training Request - ' + f.get('company');
- const body = [
-  'B-READY TRAINING REQUEST',
-  '',
-  'Company: ' + f.get('company'),
-  'Contact: ' + f.get('name'),
-  'Email: ' + f.get('email'),
-  'Phone: ' + (f.get('phone') || 'Not provided'),
-  'Training location: ' + f.get('location'),
-  'Approx. trainees: ' + f.get('trainees'),
-  '',
-  'Training requested: ' + courses.join(', '),
-  'Program type: ' + f.get('program'),
-  'Preferred date/timeframe: ' + (f.get('timeframe') || 'Not specified'),
-  'Shift/scheduling needs: ' + (f.get('shift') || 'Not specified'),
-  'Equipment make/model: ' + (f.get('equipment') || 'Not specified'),
-  '',
-  'Needs / goals:',
-  f.get('goals') || 'Not provided'
- ].join('\n');
- document.getElementById('success').style.display = 'block';
- window.location.href = 'mailto:wayne@breadytraining.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-});
-</script>
+<script src="request-training.js" defer></script>
 </body>
 </html>

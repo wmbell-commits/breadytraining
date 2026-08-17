@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://breadytraining.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://breadytraining.com/pit-forklift-training.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://breadytraining.com/awp-mewp-training.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://breadytraining.com/overhead-crane-training.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://breadytraining.com/train-the-trainer.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://breadytraining.com/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://breadytraining.com/service-area.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://breadytraining.com/request-training.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://breadytraining.com/</loc></url>
+  <url><loc>https://breadytraining.com/pit-forklift-training.html</loc></url>
+  <url><loc>https://breadytraining.com/awp-mewp-training.html</loc></url>
+  <url><loc>https://breadytraining.com/overhead-crane-training.html</loc></url>
+  <url><loc>https://breadytraining.com/train-the-trainer.html</loc></url>
+  <url><loc>https://breadytraining.com/safety-learning-hub.html</loc></url>
+  <url><loc>https://breadytraining.com/pricing.html</loc></url>
+  <url><loc>https://breadytraining.com/service-area.html</loc></url>
+  <url><loc>https://breadytraining.com/request-training.html</loc></url>
 </urlset>

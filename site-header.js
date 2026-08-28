@@ -8,12 +8,8 @@
   .br-site-header a,.br-site-header a:visited{color:#eee;text-decoration:none}
   .br-contactbar a{font-weight:800}.br-contactbar a:hover{color:var(--br-yellow)}
   .br-mainbar{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-  .br-brand{display:flex;align-items:center;gap:12px;flex:0 0 auto;min-width:250px}
-  .br-brand-symbol{display:block;width:66px;height:66px;object-fit:contain;flex:0 0 66px}
-  .br-wordmark{display:flex;flex-direction:column;line-height:.9;white-space:nowrap}
-  .br-wordmark-main{font-size:1.78rem;font-weight:950;letter-spacing:.01em;color:#fff}
-  .br-wordmark-main .br-b{color:var(--br-yellow)}
-  .br-wordmark-sub{margin-top:8px;font-size:.82rem;font-weight:950;letter-spacing:.28em;color:var(--br-yellow)}
+  .br-brand{display:flex;align-items:center;flex:0 0 auto;min-width:250px}
+  .br-brand-logo{display:block;width:auto;height:68px;max-width:285px;object-fit:contain}
   .br-navright{display:flex;align-items:center;gap:12px}.br-links{display:flex;align-items:center;gap:16px;font-size:.92rem;font-weight:800}
   .br-links a:hover,.br-links a.br-active{color:var(--br-yellow)!important}
   .br-menu{position:relative}.br-menu summary{list-style:none;cursor:pointer;border:1px solid #555;border-radius:8px;padding:9px 12px;font-weight:900;color:#fff;white-space:nowrap}.br-menu summary::-webkit-details-marker{display:none}.br-menu[open] summary{border-color:var(--br-yellow);color:var(--br-yellow)}
@@ -23,29 +19,26 @@
   .br-sub{padding-left:25px!important;font-size:.9rem}.br-divider{height:1px;background:#e3e3e3;margin:6px 4px}
   .br-cta{background:var(--br-yellow);color:#080808!important;padding:10px 13px;border-radius:8px;font-weight:950;white-space:nowrap}
   .br-cta.br-active{box-shadow:0 0 0 2px #fff inset}
-  @media(max-width:1180px){.br-links{gap:12px;font-size:.86rem}}
+  @media(max-width:1180px){.br-links{gap:12px;font-size:.86rem}.br-brand-logo{height:62px;max-width:250px}}
   @media(max-width:1120px){.br-links{display:none}.br-brand{min-width:0}}
   @media(max-width:650px){
     .br-contactbar-inner,.br-mainbar{width:min(100% - 18px,1180px)}
     .br-contactbar-inner{justify-content:center;gap:12px;min-height:38px;font-size:.76rem;flex-wrap:wrap;padding:4px 0}
     .br-mainbar{min-height:74px;gap:7px}
-    .br-brand{gap:8px}
-    .br-brand-symbol{width:50px;height:50px;flex-basis:50px}
-    .br-wordmark-main{font-size:1.22rem}.br-wordmark-sub{font-size:.62rem;letter-spacing:.21em;margin-top:5px}
+    .br-brand-logo{height:54px;max-width:205px}
     .br-cta{font-size:.69rem;padding:9px 8px}.br-menu summary{font-size:.69rem;padding:8px 8px}
     .br-menupanel{position:fixed;left:9px;right:9px;top:112px;width:auto;max-height:calc(100vh - 125px);overflow:auto}.br-navright{gap:6px}
   }
   @media(max-width:430px){
     .br-contactbar-inner{gap:8px}.br-contactbar a{font-size:.71rem}
-    .br-brand-symbol{width:46px;height:46px;flex-basis:46px}
-    .br-wordmark-main{font-size:1.08rem}.br-wordmark-sub{font-size:.56rem;letter-spacing:.18em}
+    .br-brand-logo{height:48px;max-width:180px}
     .br-cta{display:none}
   }
   `;
   const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
   const old=document.querySelector('header');if(!old)return;
   const header=document.createElement('header');header.className='br-site-header';
-  header.innerHTML=`<div class="br-contactbar"><div class="br-contactbar-inner"><a href="tel:+15866463950">586-646-3950</a><a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a></div></div><div class="br-mainbar"><a class="br-brand" href="/" aria-label="B-Ready Training home"><img class="br-brand-symbol" src="bready-symbol-transparent.png" alt=""><span class="br-wordmark"><span class="br-wordmark-main"><span class="br-b">B-</span>READY</span><span class="br-wordmark-sub">TRAINING</span></span></a><div class="br-navright"><nav class="br-links"><a data-nav="training" href="/#training">Training Overview</a><a data-nav="about" href="/#about">About</a><a data-nav="learning" href="safety-learning-hub.html">Learning Center</a><a data-nav="pricing" href="pricing.html">Pricing</a><a data-nav="reviews" href="reviews.html">Reviews</a></nav><details class="br-menu"><summary>MENU ▾</summary><div class="br-menupanel"><a data-page="home" href="/">Home</a><a data-page="training" href="/#training">Training Overview</a><a class="br-sub" data-page="pit" href="pit-forklift-training.html">PIT / Forklift — Classes I–VII</a><a class="br-sub" data-page="awp" href="awp-mewp-training.html">AWP / MEWP</a><a class="br-sub" data-page="crane" href="overhead-crane-training.html">Overhead Crane</a><a class="br-sub" data-page="trainer" href="train-the-trainer.html">Train-the-Trainer</a><div class="br-divider"></div><a data-page="about" href="/#about">About B-Ready</a><a data-page="learning" href="safety-learning-hub.html">Safety Learning Center</a><a data-page="pricing" href="pricing.html">Pricing</a><a data-page="reviews" href="reviews.html">Customer Reviews</a><a data-page="service" href="service-area.html">Service Area</a><a data-page="request" href="request-training.html">Request Training / Quote</a></div></details><a class="br-cta" data-nav="request" href="request-training.html">REQUEST TRAINING</a></div></div>`;
+  header.innerHTML=`<div class="br-contactbar"><div class="br-contactbar-inner"><a href="tel:+15866463950">586-646-3950</a><a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a></div></div><div class="br-mainbar"><a class="br-brand" href="/" aria-label="B-Ready Training home"><img class="br-brand-logo" src="bready-logo-transparent.png" alt="B-Ready Training"></a><div class="br-navright"><nav class="br-links"><a data-nav="training" href="/#training">Training Overview</a><a data-nav="about" href="/#about">About</a><a data-nav="learning" href="safety-learning-hub.html">Learning Center</a><a data-nav="pricing" href="pricing.html">Pricing</a><a data-nav="reviews" href="reviews.html">Reviews</a></nav><details class="br-menu"><summary>MENU ▾</summary><div class="br-menupanel"><a data-page="home" href="/">Home</a><a data-page="training" href="/#training">Training Overview</a><a class="br-sub" data-page="pit" href="pit-forklift-training.html">PIT / Forklift — Classes I–VII</a><a class="br-sub" data-page="awp" href="awp-mewp-training.html">AWP / MEWP</a><a class="br-sub" data-page="crane" href="overhead-crane-training.html">Overhead Crane</a><a class="br-sub" data-page="trainer" href="train-the-trainer.html">Train-the-Trainer</a><div class="br-divider"></div><a data-page="about" href="/#about">About B-Ready</a><a data-page="learning" href="safety-learning-hub.html">Safety Learning Center</a><a data-page="pricing" href="pricing.html">Pricing</a><a data-page="reviews" href="reviews.html">Customer Reviews</a><a data-page="service" href="service-area.html">Service Area</a><a data-page="request" href="request-training.html">Request Training / Quote</a></div></details><a class="br-cta" data-nav="request" href="request-training.html">REQUEST TRAINING</a></div></div>`;
   old.replaceWith(header);
 
   const pathname=(location.pathname.split('/').pop()||'').toLowerCase();

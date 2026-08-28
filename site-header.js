@@ -20,10 +20,10 @@
   .br-menupanel{position:absolute;right:0;top:46px;width:310px;background:#fff;border:1px solid #d7d7d7;border-top:5px solid var(--br-yellow);border-radius:10px;box-shadow:0 16px 40px rgba(0,0,0,.28);padding:8px;z-index:120}
   .br-menupanel a,.br-menupanel a:visited{display:block;color:#111!important;padding:9px 11px;border-radius:6px;font-weight:800}.br-menupanel a:hover{background:#f2f2ef}
   .br-menupanel a.br-active{background:#fff4c2;color:#111!important;box-shadow:inset 4px 0 0 var(--br-yellow)}
-  .br-menu-label{padding:9px 11px 5px;color:#777;font-size:.7rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
   .br-sub{padding-left:25px!important;font-size:.9rem}.br-divider{height:1px;background:#e3e3e3;margin:6px 4px}
   .br-cta{background:var(--br-yellow);color:#080808!important;padding:10px 13px;border-radius:8px;font-weight:950;white-space:nowrap}
   .br-cta.br-active{box-shadow:0 0 0 2px #fff inset}
+  @media(max-width:1180px){.br-links{gap:12px;font-size:.86rem}}
   @media(max-width:1120px){.br-links{display:none}.br-brand{min-width:0}}
   @media(max-width:650px){
     .br-contactbar-inner,.br-mainbar{width:min(100% - 18px,1180px)}
@@ -45,7 +45,7 @@
   const style=document.createElement('style');style.textContent=css;document.head.appendChild(style);
   const old=document.querySelector('header');if(!old)return;
   const header=document.createElement('header');header.className='br-site-header';
-  header.innerHTML=`<div class="br-contactbar"><div class="br-contactbar-inner"><a href="tel:+15866463950">586-646-3950</a><a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a></div></div><div class="br-mainbar"><a class="br-brand" href="/" aria-label="B-Ready Training home"><img class="br-brand-symbol" src="bready-symbol-transparent.png" alt=""><span class="br-wordmark"><span class="br-wordmark-main"><span class="br-b">B-</span>READY</span><span class="br-wordmark-sub">TRAINING</span></span></a><div class="br-navright"><nav class="br-links"><a data-nav="training" href="/#training">Training</a><a data-nav="about" href="/#about">About</a><a data-nav="learning" href="safety-learning-hub.html">Learning Center</a><a data-nav="pricing" href="pricing.html">Pricing</a><a data-nav="reviews" href="reviews.html">Reviews</a></nav><details class="br-menu"><summary>MENU ▾</summary><div class="br-menupanel"><a data-page="home" href="/">Home</a><div class="br-menu-label">Training</div><a data-page="training" href="/#training">Training Overview</a><a class="br-sub" data-page="pit" href="pit-forklift-training.html">PIT / Forklift — Classes I–VII</a><a class="br-sub" data-page="awp" href="awp-mewp-training.html">AWP / MEWP</a><a class="br-sub" data-page="crane" href="overhead-crane-training.html">Overhead Crane</a><a class="br-sub" data-page="trainer" href="train-the-trainer.html">Train-the-Trainer</a><div class="br-divider"></div><a data-page="about" href="/#about">About B-Ready</a><a data-page="learning" href="safety-learning-hub.html">Safety Learning Center</a><a data-page="pricing" href="pricing.html">Pricing</a><a data-page="reviews" href="reviews.html">Customer Reviews</a><a data-page="service" href="service-area.html">Service Area</a><a data-page="request" href="request-training.html">Request Training / Quote</a></div></details><a class="br-cta" data-nav="request" href="request-training.html">REQUEST TRAINING</a></div></div>`;
+  header.innerHTML=`<div class="br-contactbar"><div class="br-contactbar-inner"><a href="tel:+15866463950">586-646-3950</a><a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a></div></div><div class="br-mainbar"><a class="br-brand" href="/" aria-label="B-Ready Training home"><img class="br-brand-symbol" src="bready-symbol-transparent.png" alt=""><span class="br-wordmark"><span class="br-wordmark-main"><span class="br-b">B-</span>READY</span><span class="br-wordmark-sub">TRAINING</span></span></a><div class="br-navright"><nav class="br-links"><a data-nav="training" href="/#training">Training Overview</a><a data-nav="about" href="/#about">About</a><a data-nav="learning" href="safety-learning-hub.html">Learning Center</a><a data-nav="pricing" href="pricing.html">Pricing</a><a data-nav="reviews" href="reviews.html">Reviews</a></nav><details class="br-menu"><summary>MENU ▾</summary><div class="br-menupanel"><a data-page="home" href="/">Home</a><a data-page="training" href="/#training">Training Overview</a><a class="br-sub" data-page="pit" href="pit-forklift-training.html">PIT / Forklift — Classes I–VII</a><a class="br-sub" data-page="awp" href="awp-mewp-training.html">AWP / MEWP</a><a class="br-sub" data-page="crane" href="overhead-crane-training.html">Overhead Crane</a><a class="br-sub" data-page="trainer" href="train-the-trainer.html">Train-the-Trainer</a><div class="br-divider"></div><a data-page="about" href="/#about">About B-Ready</a><a data-page="learning" href="safety-learning-hub.html">Safety Learning Center</a><a data-page="pricing" href="pricing.html">Pricing</a><a data-page="reviews" href="reviews.html">Customer Reviews</a><a data-page="service" href="service-area.html">Service Area</a><a data-page="request" href="request-training.html">Request Training / Quote</a></div></details><a class="br-cta" data-nav="request" href="request-training.html">REQUEST TRAINING</a></div></div>`;
   old.replaceWith(header);
 
   const pathname=(location.pathname.split('/').pop()||'').toLowerCase();
@@ -78,7 +78,7 @@
     const focus=hash==='#training' ? section.querySelector('.section-head') : section.querySelector('.about-grid');
     const target=focus||section;
     const headerH=header.getBoundingClientRect().height;
-    const breathingRoom=34;
+    const breathingRoom=22;
     const top=target.getBoundingClientRect().top+window.scrollY-headerH-breathingRoom;
     window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
     if(updateHistory)history.pushState(null,'',hash);

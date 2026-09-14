@@ -23,6 +23,12 @@
   .br-sub{padding-left:25px!important;font-size:.9rem}.br-divider{height:1px;background:#e3e3e3;margin:6px 4px}
   .br-cta{background:var(--br-yellow);color:#080808!important;padding:10px 13px;border-radius:8px;font-weight:950;white-space:nowrap}
   .br-cta.br-active{box-shadow:0 0 0 2px #fff inset}
+  .br-next-caption{margin-top:18px;background:#090909;color:#fff;border-left:7px solid var(--br-yellow);border-radius:12px;padding:16px 18px;font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+  .br-next-caption b{display:block;color:var(--br-yellow);font-size:.78rem;letter-spacing:.08em;margin-bottom:4px}
+  .br-next-caption a,.br-next-caption a:visited{display:inline-block;margin-top:8px;color:var(--br-yellow)!important;font-weight:900;text-decoration:none;border-bottom:2px solid var(--br-yellow)}
+  .br-next-caption a:hover{color:#fff!important;border-color:#fff}
+  .caption .br-caption-next{display:block;margin-top:12px;padding-top:12px;border-top:1px solid #333;color:var(--br-yellow)!important;font-weight:900;text-decoration:none}
+  .caption .br-caption-next:hover{color:#fff!important}
   body.br-home .hero h1{font-size:clamp(3rem,5.65vw,5.15rem)!important;line-height:1!important;letter-spacing:-.04em!important;margin:0 0 24px!important}
   body.br-home .hero h1 .br-title-line{display:block;line-height:.96;margin:0 0 .105em}
   body.br-home .hero h1 .br-title-line:last-child{margin-bottom:0}
@@ -56,10 +62,35 @@
     menu.addEventListener('click',e=>{if(e.target.closest('a')){menu.open=false;cancelMenuClose();}});
   }
 
-  const pathname=(location.pathname.split('/').pop()||'').toLowerCase();const onHome=pathname===''||pathname==='index.html';const trainingPages=['pit-forklift-training.html','awp-mewp-training.html','overhead-crane-training.html','train-the-trainer.html'];const pageMap={'pit-forklift-training.html':'pit','awp-mewp-training.html':'awp','overhead-crane-training.html':'crane','train-the-trainer.html':'trainer','about-b-ready.html':'about','safety-learning-hub.html':'learning','service-area.html':'service','request-training.html':'request'};
-  if(onHome){document.body.classList.add('br-home');const heroTitle=document.querySelector('.hero h1');if(heroTitle){heroTitle.innerHTML='<span class="br-title-line">Train with purpose.</span><span class="br-title-line br-title-accent">B-Ready.</span><span class="br-title-line">Go home safe.</span>';}}
-  function clearActive(){header.querySelectorAll('.br-active').forEach(el=>el.classList.remove('br-active'));}function mark(selector){header.querySelectorAll(selector).forEach(el=>el.classList.add('br-active'));}function setActive(){clearActive();const hash=location.hash.toLowerCase();if(onHome){if(hash==='#training'){mark('[data-nav="training"],[data-page="training"]');}else if(hash==='#about'){mark('[data-nav="about"],[data-page="about"]');}else{mark('[data-page="home"]');}return;}const key=pageMap[pathname];if(trainingPages.includes(pathname)){mark('[data-nav="training"]');}if(key){mark('[data-page="'+key+'"]');mark('[data-nav="'+key+'"]');}}
+  const pathname=(location.pathname.split('/').pop()||'').toLowerCase();
+  const onHome=pathname===''||pathname==='index.html';
+  const trainingPages=['pit-forklift-training.html','awp-mewp-training.html','overhead-crane-training.html','train-the-trainer.html'];
+  const pageMap={'pit-forklift-training.html':'pit','awp-mewp-training.html':'awp','overhead-crane-training.html':'crane','train-the-trainer.html':'trainer','about-b-ready.html':'about','safety-learning-hub.html':'learning','service-area.html':'service','request-training.html':'request'};
+
+  function makeNextCard(label,text,href,linkText){const box=document.createElement('div');box.className='br-next-caption';box.innerHTML=`<b>${label}</b>${text}<br><a href="${href}">${linkText} →</a>`;return box;}
+  if(onHome){
+    document.body.classList.add('br-home');
+    const heroTitle=document.querySelector('.hero h1');
+    if(heroTitle){heroTitle.innerHTML='<span class="br-title-line">Train with purpose.</span><span class="br-title-line br-title-accent">B-Ready.</span><span class="br-title-line">Go home safe.</span>';}
+    const trainingSection=document.querySelector('#training .section-head');
+    if(trainingSection&&!document.querySelector('.br-next-training')){const card=makeNextCard('NEXT: ABOUT B-READY','See the experience and approach behind the training.','about-b-ready.html','Meet Wayne Michael Bell');card.classList.add('br-next-training');trainingSection.appendChild(card);}
+  } else if(pathname==='about-b-ready.html'){
+    const caption=document.querySelector('.portrait .caption');
+    if(caption&&!caption.querySelector('.br-caption-next')){const a=document.createElement('a');a.className='br-caption-next';a.href='safety-learning-hub.html';a.textContent='Continue to the Learning Center →';caption.appendChild(a);}
+  } else if(pathname==='safety-learning-hub.html'){
+    const lead=document.querySelector('.hero .lead');
+    if(lead&&!document.querySelector('.br-next-learning')){const card=makeNextCard('NEXT: SERVICE AREA','See where B-Ready brings on-site training across Michigan.','service-area.html','View Michigan Service Area');card.classList.add('br-next-learning');lead.insertAdjacentElement('afterend',card);}
+  } else if(pathname==='service-area.html'){
+    const lead=document.querySelector('.hero .lead');
+    if(lead&&!document.querySelector('.br-next-service')){const card=makeNextCard('NEXT: REQUEST TRAINING','Ready to discuss your equipment, team and schedule?','request-training.html','Request Training');card.classList.add('br-next-service');lead.insertAdjacentElement('afterend',card);}
+  }
+
+  function clearActive(){header.querySelectorAll('.br-active').forEach(el=>el.classList.remove('br-active'));}
+  function mark(selector){header.querySelectorAll(selector).forEach(el=>el.classList.add('br-active'));}
+  function setActive(){clearActive();const hash=location.hash.toLowerCase();if(onHome){if(hash==='#training'){mark('[data-nav="training"],[data-page="training"]');}else if(hash==='#about'){mark('[data-nav="about"],[data-page="about"]');}else{mark('[data-page="home"]');}return;}const key=pageMap[pathname];if(trainingPages.includes(pathname)){mark('[data-nav="training"]');}if(key){mark('[data-page="'+key+'"]');mark('[data-nav="'+key+'"]');}}
   function scrollHomeSection(hash,updateHistory){if(!onHome||!(hash==='#training'||hash==='#about'))return false;const section=document.querySelector(hash);if(!section)return false;const focus=hash==='#training'?section.querySelector('.section-head'):section.querySelector('.about-grid');const target=focus||section;const headerH=header.getBoundingClientRect().height;const breathingRoom=22;const top=target.getBoundingClientRect().top+window.scrollY-headerH-breathingRoom;window.scrollTo({top:Math.max(0,top),behavior:'smooth'});if(updateHistory)history.pushState(null,'',hash);setActive();return true;}
   header.addEventListener('click',function(e){const a=e.target.closest('a[href$="#training"],a[href$="#about"]');if(!a)return;const url=new URL(a.href,location.href);if(url.origin===location.origin&&(url.pathname==='/'||url.pathname.endsWith('/index.html'))&&onHome){e.preventDefault();scrollHomeSection(url.hash,true);if(menu)menu.open=false;}});
-  window.addEventListener('hashchange',function(){setActive();setTimeout(()=>scrollHomeSection(location.hash,false),0);});setActive();if(onHome&&(location.hash==='#training'||location.hash==='#about')){requestAnimationFrame(()=>requestAnimationFrame(()=>scrollHomeSection(location.hash,false)));}
+  window.addEventListener('hashchange',function(){setActive();setTimeout(()=>scrollHomeSection(location.hash,false),0);});
+  setActive();
+  if(onHome&&(location.hash==='#training'||location.hash==='#about')){requestAnimationFrame(()=>requestAnimationFrame(()=>scrollHomeSection(location.hash,false)));}
 })();

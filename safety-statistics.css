@@ -23,5 +23,6 @@
 .ipaf-source{font-size:.78rem;color:#59666a}.ipaf-source a{color:#0a5159;font-weight:900}
 .stats-note{background:#fff4c2;border-left:7px solid #111;border-radius:10px;padding:20px 22px;margin-top:22px}
 .stats-note strong{display:block;margin-bottom:4px}
+.fork-case-study::after{content:"";display:block;width:100%;aspect-ratio:4/3;margin-top:34px;border-radius:14px;border:1px solid #ccc;background:#0b0b0b url('awareness-damaged-tire.jpg') center/contain no-repeat;box-shadow:0 10px 28px rgba(0,0,0,.08)}
 @media(max-width:800px){.stats-grid,.ipaf-summary,.ipaf-risk-grid,.ipaf-heading{grid-template-columns:1fr}
 }

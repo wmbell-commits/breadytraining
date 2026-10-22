@@ -47,12 +47,12 @@ footer{padding:25px 0;color:#bbb;font-size:.9rem}
 <main><div class="wrap"><div id="success" class="success" role="status">Thank you for sharing your reference. Your submission has been sent privately to B-Ready Training for review.</div>
 <div class="layout">
 <section class="panel"><h2>Client Character Reference</h2><p class="intro">Please write in your own words. Required fields are marked with *. Your reference is not published automatically.</p>
-<form action="https://formsubmit.co/wayne@breadytraining.com" method="POST">
+<form id="referenceForm" action="https://formsubmit.co/wayne@breadytraining.com" method="POST">
 <input type="hidden" name="_subject" value="B-Ready Client Character Reference — Review for Publication">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://breadytraining.com/client-reference.html?submitted=1">
-<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="fields">
 <div class="field"><label for="name">Your full name *</label><input id="name" name="Full name" autocomplete="name" required maxlength="120"></div>
 <div class="field"><label for="title">Job title / role</label><input id="title" name="Job title or role" autocomplete="organization-title" maxlength="120"></div>
@@ -72,4 +72,5 @@ footer{padding:25px 0;color:#bbb;font-size:.9rem}
 </div></div></main>
 <footer><div class="wrap">© B-Ready Training • Michigan on-site industrial equipment training • 586.646.3950</div></footer>
 <script>if(new URLSearchParams(window.location.search).get('submitted')==='1'){document.getElementById('success').style.display='block';window.scrollTo(0,0)}</script>
+<script src="/client-reference-backend.js" defer></script>
 </body></html>

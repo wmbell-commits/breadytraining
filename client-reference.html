@@ -47,23 +47,23 @@ footer{padding:25px 0;color:#bbb;font-size:.9rem}
 <main><div class="wrap"><div id="success" class="success" role="status">Thank you for sharing your reference. Your submission has been sent privately to B-Ready Training for review.</div>
 <div class="layout">
 <section class="panel"><h2>Client Character Reference</h2><p class="intro">Please write in your own words. Required fields are marked with *. Your reference is not published automatically.</p>
-<form id="referenceForm" action="https://formsubmit.co/wayne@breadytraining.com" method="POST">
-<input type="hidden" name="_subject" value="B-Ready Client Character Reference — Review for Publication">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://breadytraining.com/client-reference.html?submitted=1">
+<form id="referenceForm" action="https://script.google.com/macros/s/AKfycbxm-760l3UM3esUyQVxrcgRnDhwFae-rjtA7a1gxPzQH59yHRnMmCJJpROMj8gbXQ4o/exec" method="POST">
+
+
+
+
 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="fields">
-<div class="field"><label for="name">Your full name *</label><input id="name" name="Full name" autocomplete="name" required maxlength="120"></div>
-<div class="field"><label for="title">Job title / role</label><input id="title" name="Job title or role" autocomplete="organization-title" maxlength="120"></div>
-<div class="field"><label for="company">Company / organization *</label><input id="company" name="Company or organization" autocomplete="organization" required maxlength="150"></div>
-<div class="field"><label for="email">Your email *</label><input id="email" name="Reply email" type="email" autocomplete="email" required maxlength="180"></div>
-<div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="Phone" type="tel" autocomplete="tel" maxlength="40"></div>
-<div class="field"><label for="relationship">How have you worked with Wayne / B-Ready? *</label><select id="relationship" name="Professional relationship" required><option value="">Select an option</option><option>Training client</option><option>Training participant</option><option>Business partner or vendor</option><option>Professional colleague</option><option>Other professional relationship</option></select></div>
-<div class="field full"><label for="experience">Your character reference *</label><textarea id="experience" name="Character reference" required minlength="20" maxlength="3000" placeholder="For example: How did Wayne demonstrate professionalism, integrity, dependability, preparedness, or care for employee safety? What stood out from your experience?"></textarea><p class="help">Specific, first-hand examples are helpful. There's no need to use a particular tone or length.</p></div>
-<div class="field full"><label for="display">If published, how should we identify you? *</label><select id="display" name="Preferred public attribution" required><option value="">Select your preference</option><option>My name, title, and company</option><option>My name and company</option><option>My first name and last initial</option><option>Anonymous</option><option>Do not publish — private feedback only</option></select></div>
+<div class="field"><label for="name">Your full name *</label><input id="name" name="full_name" autocomplete="name" required maxlength="120"></div>
+<div class="field"><label for="title">Job title / role</label><input id="title" name="job_title" autocomplete="organization-title" maxlength="120"></div>
+<div class="field"><label for="company">Company / organization *</label><input id="company" name="company" autocomplete="organization" required maxlength="150"></div>
+<div class="field"><label for="email">Your email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="180"></div>
+<div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+<div class="field"><label for="relationship">How have you worked with Wayne / B-Ready? *</label><select id="relationship" name="relationship" required><option value="">Select an option</option><option>Training client</option><option>Training participant</option><option>Business partner or vendor</option><option>Professional colleague</option><option>Other professional relationship</option></select></div>
+<div class="field full"><label for="experience">Your character reference *</label><textarea id="experience" name="reference" required minlength="20" maxlength="3000" placeholder="For example: How did Wayne demonstrate professionalism, integrity, dependability, preparedness, or care for employee safety? What stood out from your experience?"></textarea><p class="help">Specific, first-hand examples are helpful. There's no need to use a particular tone or length.</p></div>
+<div class="field full"><label for="display">If published, how should we identify you? *</label><select id="display" name="attribution" required><option value="">Select your preference</option><option>My name, title, and company</option><option>My name and company</option><option>My first name and last initial</option><option>Anonymous</option><option>Do not publish — private feedback only</option></select></div>
 </div>
-<label class="check"><input type="checkbox" name="Permission to publish" value="Yes — with selected attribution" required><span>I confirm this reference reflects my genuine experience and authorize B-Ready Training to review and, unless I selected “Do not publish,” share my words with my selected attribution on its website or business materials. I understand my email and phone number will not be published.</span></label>
+<label class="check"><input type="checkbox" name="permission" value="yes" required><span>I confirm this reference reflects my genuine experience and authorize B-Ready Training to review and, unless I selected “Do not publish,” share my words with my selected attribution on its website or business materials. I understand my email and phone number will not be published.</span></label>
 <button type="submit">SEND MY REFERENCE</button>
 <p class="fine">Submissions go directly to Wayne at B-Ready Training. They are reviewed individually and are never automatically posted. You may request removal of a published reference by emailing <a href="mailto:wayne@breadytraining.com">wayne@breadytraining.com</a>.</p>
 </form></section>
@@ -72,5 +72,5 @@ footer{padding:25px 0;color:#bbb;font-size:.9rem}
 </div></div></main>
 <footer><div class="wrap">© B-Ready Training • Michigan on-site industrial equipment training • 586.646.3950</div></footer>
 <script>if(new URLSearchParams(window.location.search).get('submitted')==='1'){document.getElementById('success').style.display='block';window.scrollTo(0,0)}</script>
-<script src="/client-reference-backend.js" defer></script>
+
 </body></html>

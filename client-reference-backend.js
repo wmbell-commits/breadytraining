@@ -2,7 +2,7 @@
  * While empty, reference submissions continue through the existing email form.
  * The Apps Script writes to a private Sheet and emails an Excel attachment.
  */
-const WEB_APP_URL = '';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxm-760l3UM3esUyQVxrcgRnDhwFae-rjtA7a1gxPzQH59yHRnMmCJJpROMj8gbXQ4o/exec';
 if (WEB_APP_URL.startsWith('https://script.google.com/macros/s/') && WEB_APP_URL.endsWith('/exec')) {
   const form = document.getElementById('referenceForm');
   form.action = WEB_APP_URL;
